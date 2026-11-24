@@ -8,7 +8,7 @@ A launch-sniper paper-trading bot for make.fun's "Pump.fun Paper Sprint: Any Bot
 
 ## Strategy
 
-- **Entry:** every coin is watched from its CreateEvent. The bot buys only in a coin's first few slots, and only launches that pass a rug filter: a small creator buy, few distinct non-creator buyers piling in at birth (a launch bundled by many wallets is usually the creator's cluster waiting to dump), no creator sale yet, no big early sell, and the price still near its create price.
+- **Entry:** every coin is watched from its CreateEvent. The bot buys only in a coin's first few slots, and only launches that pass a strict rug filter: a creator buy of at most 1 SOL, no other non-creator wallet having traded yet (a launch that already has a crowd piling in at birth is usually the creator's cluster waiting to dump), no creator sale yet, no big early sell, and the price still near its create price.
 - **Exits:** take profit fast, cut losers fast, never hold past a short time limit, and leave at once when the creator sells.
 - **Why this shape:** chasing momentum after a run-up loses on the replay — by the time a rise shows in the tape the dump has usually started, and holding while a curve bleeds eats the stake in fees and drawdown. Buying at birth with a hard exit keeps stakes small, coins many, and no position left to bleed.
 - **Guardrail pacing:** tiny probe round trips (0.02 SOL) keep the run above the minimum bar — a round trip of at least 0.01 SOL on each of at least 20 coins — when the sniper entries alone lag the pace.
